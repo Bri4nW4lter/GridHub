@@ -14,19 +14,23 @@ public class PlayerMovement : MonoBehaviour {
 
     public void UpButton()
     {
-        direction = 0;    
+        direction = 0;
+        Move();
     }
     public void DownButton()
     {
         direction = 1;
+        Move();
     }
     public void LeftButton()
     {
         direction = 2;
+        Move();
     }
     public void RightButton()
     {
         direction = 3;
+        Move();
     }
 
 
@@ -34,7 +38,7 @@ public class PlayerMovement : MonoBehaviour {
     void Update () {
 		
 	}
-    private void OnMouseUp()
+    private void Move()
     {
         TileScript finalTile = null;            //tile we want to arrive at
         
