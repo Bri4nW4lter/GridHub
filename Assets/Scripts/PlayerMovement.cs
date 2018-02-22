@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement :NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
         FindArena();
-   
-	}
+   	}
+    
     public TileScript startingTile;
     public GameObject firstTile;
+
     TileScript currentTile;
      int direction;
 
@@ -39,7 +41,9 @@ public class PlayerMovement : MonoBehaviour {
     {
         firstTile = GameObject.Find("Arena/Player1Tile4");
         startingTile = firstTile.GetComponent<TileScript>();
+        this.transform.position = startingTile.transform.position;
         Debug.Log(startingTile);
+
 
     }
 
@@ -65,12 +69,14 @@ public class PlayerMovement : MonoBehaviour {
         {
             return;
         }
-       // Debug.Log(currentTile);
+       
       //  Debug.Log(finalTile);
 
         //Move to Position of the Tile
         this.transform.position = finalTile.transform.position;
+       
         currentTile = finalTile;
-
+        Debug.Log(finalTile.transform.position);
+         Debug.Log(currentTile);
     }
 }

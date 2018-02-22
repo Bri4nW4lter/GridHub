@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Networking;
 using UnityEngine;
 
-public class TileScript : MonoBehaviour{
+public class TileScript : NetworkBehaviour{
 
 	
     public TileScript[] NextTiles;
