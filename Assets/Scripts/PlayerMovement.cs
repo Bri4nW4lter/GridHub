@@ -1,22 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Networking;
 using UnityEngine;
 
-public class PlayerMovement : NetworkBehaviour {
+public class PlayerMovement : MonoBehaviour {
 
+	// Use this for initialization
+	void Start () {
+        FindArena();
+   
+	}
     public TileScript startingTile;
+    public GameObject firstTile;
     TileScript currentTile;
-    int direction;
-
-    private void Start()
-    {
-        
-    }
+     int direction;
 
     public void UpButton()
     {
-        Debug.Log("test");
         direction = 0;
         Move();
     }
@@ -36,7 +35,19 @@ public class PlayerMovement : NetworkBehaviour {
         Move();
     }
 
+    void FindArena()
+    {
+        firstTile = GameObject.Find("Arena/Player1Tile4");
+        startingTile = firstTile.GetComponent<TileScript>();
+        Debug.Log(startingTile);
 
+    }
+
+
+    // Update is called once per frame
+    void Update () {
+		
+	}
     private void Move()
     {
         TileScript finalTile = null;            //tile we want to arrive at
@@ -54,6 +65,8 @@ public class PlayerMovement : NetworkBehaviour {
         {
             return;
         }
+       // Debug.Log(currentTile);
+      //  Debug.Log(finalTile);
 
         //Move to Position of the Tile
         this.transform.position = finalTile.transform.position;
