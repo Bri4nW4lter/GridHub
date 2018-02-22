@@ -1,17 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
-public class TileScript : MonoBehaviour {
+public class TileScript : MonoBehaviour{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+	
     public TileScript[] NextTiles;
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	
+	
 }

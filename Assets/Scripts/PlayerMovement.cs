@@ -1,19 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : NetworkBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
     public TileScript startingTile;
     TileScript currentTile;
-     int direction;
+    int direction;
+
+    private void Start()
+    {
+        
+    }
 
     public void UpButton()
     {
+        Debug.Log("test");
         direction = 0;
         Move();
     }
@@ -34,10 +37,6 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
     private void Move()
     {
         TileScript finalTile = null;            //tile we want to arrive at
